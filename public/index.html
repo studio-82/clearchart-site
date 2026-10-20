@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clearchart: medication charts for aged care</title>
+  <meta name="description" content="Clearchart puts your residents' medication chart on a tablet. Staff carry it on rounds and to GP visits, doctors write changes straight into it, and nobody misses an update. Join the waitlist.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700;800&family=Caveat:wght@500;600&family=Nothing+You+Could+Do&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="/" aria-label="Clearchart home">
+        <svg class="brand__mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#1C2754"/>
+          <rect x="7" y="7.5" width="18" height="3" rx="1.5" fill="#fff"/>
+          <rect x="4.5" y="13.5" width="23" height="5" rx="1.5" fill="#FFE35A"/>
+          <rect x="7" y="14.5" width="13" height="3" rx="1.5" fill="#1C2754"/>
+          <rect x="7" y="21.5" width="11" height="3" rx="1.5" fill="#fff"/>
+        </svg>
+        <span class="brand__name">Clearchart</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#roles">Who it's for</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">Questions</a>
+      </nav>
+      <a class="button button--small" href="#waitlist">Join the waitlist</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <h1 id="hero-title">Give every dose from a chart you can trust.</h1>
+          <p class="hero__lead">Clearchart puts your residents' medication chart on a tablet. Staff carry it on rounds and to GP visits, just like the paper folder. The doctor types changes straight into it, and nobody on the next round can miss them.</p>
+          <div class="hero__actions">
+            <a class="button" href="#waitlist">Join the waitlist</a>
+            <a class="text-link" href="#how">See how a dose change reaches every round</a>
+          </div>
+          <p class="hero__note">Now taking expressions of interest from aged care and disability care providers across Australia.</p>
+        </div>
+
+        <figure class="chart" data-view="paper" id="hero-chart">
+          <div class="chart__toggle" role="group" aria-label="Choose chart view">
+            <button type="button" class="chart__option" data-view="paper" aria-pressed="true">Paper chart</button>
+            <button type="button" class="chart__option" data-view="digital" aria-pressed="false">Clearchart</button>
+          </div>
+
+          <div class="chart__stage">
+            <!-- Paper version -->
+            <div class="sheet sheet--paper" data-sheet="paper" role="img" aria-label="A handwritten paper medication chart for Joan Whitby, Room 14. The metoprolol dose has been crossed out and changed from 50 mg to 25 mg in the margin, but the morning dose was signed off as usual. The furosemide order is hard to read, and the morning apixaban box has no signature.">
+              <div class="punch" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="paper" aria-hidden="true">
+                <div class="paper__top">
+                  <span class="print">Residential medication chart</span>
+                  <span class="print">Page 2 of 4</span>
+                </div>
+                <div class="paper__fields">
+                  <div class="paper__field">
+                    <span class="print">Resident</span>
+                    <span class="hand hand--nurse">Joan Whitby</span>
+                  </div>
+                  <div class="paper__field paper__field--narrow">
+                    <span class="print">Room</span>
+                    <span class="hand hand--nurse">14</span>
+                  </div>
+                  <div class="paper__field paper__field--wide">
+                    <span class="print">Allergies</span>
+                    <span class="hand hand--red">PENICILLIN – rash</span>
+                  </div>
+                </div>
+
+                <div class="paper__grid">
+                  <div class="paper__row paper__row--head">
+                    <span class="print">Medicine, dose, directions</span>
+                    <span class="print">0800</span>
+                    <span class="print">1200</span>
+                    <span class="print">1700</span>
+                    <span class="print">2000</span>
+                  </div>
+
+                  <div class="paper__row">
+                    <span class="paper__med hand hand--doctor">Metformin 500mg BD with food</span>
+                    <span class="paper__cell hand hand--nurse">KL</span>
+                    <span class="paper__cell paper__cell--off"></span>
+                    <span class="paper__cell"></span>
+                    <span class="paper__cell paper__cell--off"></span>
+                  </div>
+
+                  <div class="paper__row">
+                    <span class="paper__med">
+                      <span class="hand hand--doctor">Metoprolol <s>50mg</s> BD</span>
+                      <span class="hand hand--doctor paper__amend">25mg</span>
+                      <span class="hand hand--doctor paper__margin">see script 14/10 AN</span>
+                    </span>
+                    <span class="paper__cell hand hand--nurse">KL</span>
+                    <span class="paper__cell paper__cell--off"></span>
+                    <span class="paper__cell paper__cell--off"></span>
+                    <span class="paper__cell"></span>
+                  </div>
+
+                  <div class="paper__row">
+                    <span class="paper__med"><span class="hand hand--doctor hand--scrawl">Frusemide 40mg mane</span></span>
+                    <span class="paper__cell hand hand--nurse">KL</span>
+                    <span class="paper__cell paper__cell--off"></span>
+                    <span class="paper__cell paper__cell--off"></span>
+                    <span class="paper__cell paper__cell--off"></span>
+                  </div>
+
+                  <div class="paper__row">
+                    <span class="paper__med hand hand--doctor">Apixaban 2.5mg BD</span>
+                    <span class="paper__cell"></span>
+                    <span class="paper__cell paper__cell--off"></span>
+                    <span class="paper__cell paper__cell--off"></span>
+                    <span class="paper__cell"></span>
+                  </div>
+
+                  <div class="paper__row">
+                    <span class="paper__med hand hand--doctor">Paracetamol 1g PRN max 4g/24h</span>
+                    <span class="paper__cell paper__cell--span hand hand--nurse">0310 1g JR</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Clearchart version -->
+            <div class="sheet sheet--digital" data-sheet="digital" role="img" aria-label="The same chart in Clearchart. Metoprolol 25 mg is highlighted as changed two days ago by Dr Anh Nguyen, and six of seven staff on shift have acknowledged it. Every morning dose shows who gave it and when, and the evening doses are marked as due.">
+              <div class="screen" aria-hidden="true">
+                <div class="screen__top">
+                  <span class="screen__avatar">JW</span>
+                  <div class="screen__who">
+                    <strong>Joan Whitby</strong>
+                    <span>Room 14, Wattle wing</span>
+                  </div>
+                  <span class="allergy-chip">Penicillin allergy: rash</span>
+                </div>
+
+                <div class="screen__grid">
+                  <div class="screen__row screen__row--head">
+                    <span>Friday 16 October</span>
+                    <span>08:00</span>
+                    <span class="is-now">12:00</span>
+                    <span>17:00</span>
+                    <span>20:00</span>
+                  </div>
+
+                  <div class="screen__row">
+                    <span class="screen__med"><strong>Metformin 500 mg</strong><small>1 tablet twice a day with food</small></span>
+                    <span class="dose dose--given"><b>KL</b><small>08:04</small></span>
+                    <span class="dose dose--none is-now"></span>
+                    <span class="dose dose--due">Due</span>
+                    <span class="dose dose--none"></span>
+                  </div>
+
+                  <div class="screen__row screen__row--changed">
+                    <span class="screen__med">
+                      <strong>Metoprolol 25 mg</strong>
+                      <small>1 tablet twice a day. Reduced from 50 mg by Dr Anh Nguyen, 14 Oct.</small>
+                      <span class="change-note"><span class="change-tag">Changed 2 days ago</span> 6 of 7 staff on shift have acknowledged</span>
+                    </span>
+                    <span class="dose dose--given"><b>KL</b><small>25 mg</small></span>
+                    <span class="dose dose--none is-now"></span>
+                    <span class="dose dose--none"></span>
+                    <span class="dose dose--due">Due</span>
+                  </div>
+
+                  <div class="screen__row">
+                    <span class="screen__med"><strong>Furosemide 40 mg</strong><small>1 tablet each morning</small></span>
+                    <span class="dose dose--given"><b>KL</b><small>08:05</small></span>
+                    <span class="dose dose--none is-now"></span>
+                    <span class="dose dose--none"></span>
+                    <span class="dose dose--none"></span>
+                  </div>
+
+                  <div class="screen__row">
+                    <span class="screen__med"><strong>Apixaban 2.5 mg</strong><small>1 tablet twice a day. High-risk medicine.</small></span>
+                    <span class="dose dose--given"><b>SM</b><small>08:11</small></span>
+                    <span class="dose dose--none is-now"></span>
+                    <span class="dose dose--none"></span>
+                    <span class="dose dose--due">Due</span>
+                  </div>
+
+                  <div class="screen__row">
+                    <span class="screen__med"><strong>Paracetamol 1 g</strong><small>When needed for pain. No more than 4 g in 24 hours.</small></span>
+                    <span class="dose dose--prn">Last given 03:10 by JR. Pain eased at the 04:10 check.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <figcaption class="chart__caption" aria-live="polite">
+            <span data-caption="paper">On paper, Dr Nguyen's dose change is a scribble in the margin. The morning shift signed for the usual dose.</span>
+            <span data-caption="digital">In Clearchart, the change stays highlighted on every screen until each staff member on shift has acknowledged it.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Problems -->
+    <section class="section" id="problems" aria-labelledby="problems-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="problems-title">Where the paper chart lets residents down</h2>
+          <p class="section-lead">Ask anyone who has done a medication round and you'll hear the same four stories. None of them are about careless people. They're about a paper folder trying to keep track of every change, for every resident, across every shift.</p>
+        </div>
+
+        <div class="compare">
+          <div class="compare__head" aria-hidden="true">
+            <span></span>
+            <span>On paper</span>
+            <span>With Clearchart</span>
+          </div>
+
+          <article class="compare__row">
+            <h3>The script was written, but the chart wasn't</h3>
+            <div class="compare__paper">
+              <span class="compare__label">On paper</span>
+              <p class="scrap" aria-hidden="true"><span class="hand hand--doctor">Rx Cefalexin 500mg QID 5/7</span><span class="scrap__blank">chart: nothing written</span></p>
+              <p>During a visit the GP writes a new prescription but doesn't update the chart. The pharmacy supplies one thing. Staff give another.</p>
+            </div>
+            <div class="compare__clear">
+              <span class="compare__label">With Clearchart</span>
+              <p>The doctor updates the chart on the tablet during the visit. Before they sign off, Clearchart asks whether they've written any scripts, so each one goes on the chart before anyone leaves the room.</p>
+            </div>
+          </article>
+
+          <article class="compare__row">
+            <h3>Nobody can read what the doctor wrote</h3>
+            <div class="compare__paper">
+              <span class="compare__label">On paper</span>
+              <p class="scrap" aria-hidden="true"><span class="hand hand--doctor hand--scrawl">Frusemide 40mg mane</span></p>
+              <p>Is that 40 or 10? Morning or night? Staff ring the surgery, wait for a call back, or make their best guess.</p>
+            </div>
+            <div class="compare__clear">
+              <span class="compare__label">With Clearchart</span>
+              <p>The doctor picks the medicine from a list of standard Australian medicine names, then enters the dose, route and timing in their own fields. Nothing is handwritten.</p>
+            </div>
+          </article>
+
+          <article class="compare__row">
+            <h3>The change nobody noticed</h3>
+            <div class="compare__paper">
+              <span class="compare__label">On paper</span>
+              <p class="scrap" aria-hidden="true"><span class="hand hand--doctor">Metoprolol <s>50mg</s> 25mg BD</span></p>
+              <p>A dose is crossed out and rewritten halfway down the chart. The next shift works from memory and gives the old dose.</p>
+            </div>
+            <div class="compare__clear">
+              <span class="compare__label">With Clearchart</span>
+              <p>Changed orders stay highlighted for every staff member until they acknowledge them. Clinical leads can see who hasn't.</p>
+            </div>
+          </article>
+
+          <article class="compare__row">
+            <h3>Copying everything onto a new chart</h3>
+            <div class="compare__paper">
+              <span class="compare__label">On paper</span>
+              <p class="scrap" aria-hidden="true"><span class="hand hand--doctor">Metformin 500mg BD</span><span class="scrap__arrow">copied as</span><span class="hand hand--doctor">Metformin 50mg BD</span></p>
+              <p>When a chart runs out, every order is copied by hand onto a new one, sometimes onto a newer form with a different layout. Every copy is a chance for a mistake.</p>
+            </div>
+            <div class="compare__clear">
+              <span class="compare__label">With Clearchart</span>
+              <p>There's no new chart to copy onto. Orders carry forward until a doctor changes or stops them, and the tablet reminds you when a review is due.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section--sheet" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="how-title">How a dose change reaches every round</h2>
+          <p class="section-lead">Follow one change, Joan's metoprolol going from 50 mg to 25 mg, from the GP visit to the evening round.</p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <h3>Staff take the tablet to the visit</h3>
+            <p>Wherever the paper chart goes now: the GP's rooms, the doctor's round at the facility, or the pharmacy counter.</p>
+            <div class="mini" aria-hidden="true">
+              <span class="mini__title">GP visit for Joan Whitby</span>
+              <span class="mini__line">Room 14, Wattle wing</span>
+              <span class="mini__btn">Hand to doctor</span>
+            </div>
+          </li>
+          <li class="step">
+            <h3>The doctor changes the order on the tablet</h3>
+            <p>They pick the medicine, enter the new dose and sign on the screen. There's no handwriting to decipher later.</p>
+            <div class="mini" aria-hidden="true">
+              <span class="mini__title">Metoprolol</span>
+              <span class="mini__line"><s>50 mg</s> 25 mg twice a day</span>
+              <span class="mini__btn">Sign change</span>
+            </div>
+          </li>
+          <li class="step">
+            <h3>Staff acknowledge it before the next dose</h3>
+            <p>The changed order is highlighted on the round. Each staff member confirms they've seen it before they can record that dose.</p>
+            <div class="mini mini--changed" aria-hidden="true">
+              <span class="mini__title">Metoprolol has changed</span>
+              <span class="mini__line">Now 25 mg twice a day</span>
+              <span class="mini__btn">I've read this change</span>
+            </div>
+          </li>
+          <li class="step">
+            <h3>Every dose is recorded</h3>
+            <p>Who gave what, when, and why a dose was withheld or refused. Missed doses show up for the clinical lead the same day, not at the next audit.</p>
+            <div class="mini" aria-hidden="true">
+              <span class="mini__title">Wattle wing, evening round</span>
+              <span class="mini__line">0 missed doses</span>
+              <span class="mini__line">1 change waiting for acknowledgement</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Roles -->
+    <section class="section" id="roles" aria-labelledby="roles-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="roles-title">Built for everyone who touches the chart</h2>
+          <p class="section-lead">One chart, with a view that fits each job.</p>
+        </div>
+
+        <div class="roles">
+          <div class="roles__tabs" role="tablist" aria-label="Who Clearchart is for">
+            <button type="button" role="tab" id="tab-care" aria-controls="panel-care" aria-selected="true">Care staff</button>
+            <button type="button" role="tab" id="tab-nurses" aria-controls="panel-nurses" aria-selected="false" tabindex="-1">Nurses</button>
+            <button type="button" role="tab" id="tab-gps" aria-controls="panel-gps" aria-selected="false" tabindex="-1">GPs</button>
+            <button type="button" role="tab" id="tab-pharmacy" aria-controls="panel-pharmacy" aria-selected="false" tabindex="-1">Pharmacists</button>
+            <button type="button" role="tab" id="tab-managers" aria-controls="panel-managers" aria-selected="false" tabindex="-1">Managers</button>
+          </div>
+
+          <div class="roles__panel" role="tabpanel" id="panel-care" aria-labelledby="tab-care" tabindex="0">
+            <h3>A round you can trust, on a tablet you already know how to use</h3>
+            <p>See what's due, for whom, and what changed since your last shift. Tap to record each dose. If a resident refuses, is asleep or is out with family, record why in two taps.</p>
+            <ul class="ticks">
+              <li>Resident photo and allergies on every screen</li>
+              <li>Changes highlighted until you've read them</li>
+              <li>Take it to GP visits, just like the paper folder</li>
+            </ul>
+          </div>
+
+          <div class="roles__panel" role="tabpanel" id="panel-nurses" aria-labelledby="tab-nurses" tabindex="0" hidden>
+            <h3>The whole wing's round, at a glance</h3>
+            <p>See every resident's medicines, every missed or late dose and every change waiting for acknowledgement, without flicking through a folder.</p>
+            <ul class="ticks">
+              <li>When-needed medicines with a follow-up check on whether they helped</li>
+              <li>Two-person sign-off for Schedule 8 medicines</li>
+              <li>Handover summary of today's changes and missed doses</li>
+            </ul>
+          </div>
+
+          <div class="roles__panel" role="tabpanel" id="panel-gps" aria-labelledby="tab-gps" tabindex="0" hidden>
+            <h3>Write on the chart without the handwriting</h3>
+            <p>When staff bring the tablet to your rooms, or you visit the facility, change orders directly on it. Pick the medicine, enter the dose and sign on the screen.</p>
+            <ul class="ticks">
+              <li>Nothing to install and no account to set up</li>
+              <li>What's actually been given, refused or withheld, in one view</li>
+              <li>Fewer phone calls asking what you meant</li>
+            </ul>
+          </div>
+
+          <div class="roles__panel" role="tabpanel" id="panel-pharmacy" aria-labelledby="tab-pharmacy" tabindex="0" hidden>
+            <h3>A chart you can read the moment it's handed over</h3>
+            <p>When staff bring the tablet to the counter, every order is typed and every change is dated and signed, so there's nothing to squint at or call about.</p>
+            <ul class="ticks">
+              <li>Recent changes listed first, with who made them and when</li>
+              <li>Standard Australian medicine names, not abbreviations</li>
+              <li>Complete administration records for medication reviews</li>
+            </ul>
+          </div>
+
+          <div class="roles__panel" role="tabpanel" id="panel-managers" aria-labelledby="tab-managers" tabindex="0" hidden>
+            <h3>Know medication management is working, without auditing a filing cabinet</h3>
+            <p>See missed doses, unacknowledged changes and overdue reviews across wings and shifts, without flicking through every folder.</p>
+            <ul class="ticks">
+              <li>Missed and late dose reports by wing and shift</li>
+              <li>A complete record of who changed, viewed and gave what</li>
+              <li>Evidence ready for Aged Care Quality and Safety Commission assessments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="section section--ink" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="privacy-title">Resident health information stays in Australia, and stays yours</h2>
+          <p class="section-lead">Clearchart isn't live yet. These are the commitments we're designing against now, so you can hold us to them at launch.</p>
+        </div>
+
+        <dl class="promises">
+          <div class="promise">
+            <dt>Backed up in Australia</dt>
+            <dd>Each chart is backed up to Australian servers whenever the tablet is online. Backups and logs never leave the country.</dd>
+          </div>
+          <div class="promise">
+            <dt>Built for Australian privacy law</dt>
+            <dd>Designed around the Australian Privacy Principles, the Notifiable Data Breaches scheme and the health records laws in New South Wales, Victoria and the ACT.</dd>
+          </div>
+          <div class="promise">
+            <dt>Your organisation owns the records</dt>
+            <dd>Export everything whenever you like. If you leave, we delete your data on a published schedule and confirm it in writing.</dd>
+          </div>
+          <div class="promise">
+            <dt>Every view is logged, not just every edit</dt>
+            <dd>Clinical leads can see who opened a resident's chart, and when.</dd>
+          </div>
+          <div class="promise">
+            <dt>Only what's needed</dt>
+            <dd>We keep what staff need to give medicines safely, not full clinical notes. The less we hold, the less there is to lose.</dd>
+          </div>
+          <div class="promise">
+            <dt>A lost tablet isn't a lost chart</dt>
+            <dd>Every tablet is encrypted and locked with a PIN. If one goes missing, wipe it remotely and carry on from another. Nothing is lost.</dd>
+          </div>
+        </dl>
+
+        <p class="never">We will never sell resident information, use it for advertising, or use it to train AI models.</p>
+      </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section class="section" id="waitlist" aria-labelledby="waitlist-title">
+      <div class="wrap waitlist">
+        <div class="waitlist__intro">
+          <h2 id="waitlist-title">Join the waitlist</h2>
+          <p class="section-lead">We're looking for aged care and disability care providers to help shape Clearchart before it launches. GPs and pharmacists who work with them are welcome too.</p>
+          <ul class="ticks">
+            <li>Early access when we open in your state</li>
+            <li>A say in what we build first</li>
+            <li>First look at pricing</li>
+          </ul>
+          <p class="waitlist__privacy">This form asks about your organisation, never about your residents.</p>
+        </div>
+
+        <div class="waitlist__panel">
+          <form class="form" id="waitlist-form" data-endpoint="" data-contact="enquiries@s82.studio" novalidate>
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="f-name-error">
+              <p class="field__error" id="f-name-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="f-email">Work email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="f-email-error">
+              <p class="field__error" id="f-email-error" hidden></p>
+            </div>
+
+            <div class="field-pair">
+              <div class="field">
+                <label for="f-role">Your role</label>
+                <select id="f-role" name="role" required aria-describedby="f-role-error">
+                  <option value="">Choose one</option>
+                  <option value="care-worker">Care worker or PCA</option>
+                  <option value="enrolled-nurse">Enrolled nurse</option>
+                  <option value="registered-nurse">Registered nurse or clinical lead</option>
+                  <option value="manager">Facility manager or director of nursing</option>
+                  <option value="gp">GP or nurse practitioner</option>
+                  <option value="pharmacist">Pharmacist</option>
+                  <option value="executive">Owner or executive</option>
+                  <option value="other">Something else</option>
+                </select>
+                <p class="field__error" id="f-role-error" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="f-state">State or territory</label>
+                <select id="f-state" name="state" required aria-describedby="f-state-error">
+                  <option value="">Choose one</option>
+                  <option value="NSW">New South Wales</option>
+                  <option value="VIC">Victoria</option>
+                  <option value="QLD">Queensland</option>
+                  <option value="WA">Western Australia</option>
+                  <option value="SA">South Australia</option>
+                  <option value="TAS">Tasmania</option>
+                  <option value="ACT">Australian Capital Territory</option>
+                  <option value="NT">Northern Territory</option>
+                </select>
+                <p class="field__error" id="f-state-error" hidden></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-org">Organisation</label>
+              <input id="f-org" name="organisation" type="text" autocomplete="organization" required maxlength="160" aria-describedby="f-org-error">
+              <p class="field__error" id="f-org-error" hidden></p>
+            </div>
+
+            <div class="field-pair">
+              <div class="field">
+                <label for="f-orgtype">Type of organisation</label>
+                <select id="f-orgtype" name="orgType" required aria-describedby="f-orgtype-error">
+                  <option value="">Choose one</option>
+                  <option value="residential-aged-care">Residential aged care</option>
+                  <option value="disability">Disability accommodation</option>
+                  <option value="pharmacy">Pharmacy</option>
+                  <option value="general-practice">General practice</option>
+                  <option value="other">Something else</option>
+                </select>
+                <p class="field__error" id="f-orgtype-error" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="f-size">Number of beds <span class="optional">(optional)</span></label>
+                <select id="f-size" name="size">
+                  <option value="">Choose one</option>
+                  <option value="under-30">Under 30</option>
+                  <option value="30-60">30 to 60</option>
+                  <option value="61-120">61 to 120</option>
+                  <option value="over-120">More than 120</option>
+                  <option value="multi-site">Several sites</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend>How do you chart medicines today? <span class="optional">(optional)</span></legend>
+              <div class="choices choices--inline">
+                <label class="choice"><input type="radio" name="charting" value="paper"> Paper</label>
+                <label class="choice"><input type="radio" name="charting" value="electronic"> Electronic</label>
+                <label class="choice"><input type="radio" name="charting" value="mixed"> A mix</label>
+                <label class="choice"><input type="radio" name="charting" value="unsure"> Not sure</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Which of these have you seen happen? <span class="optional">(optional)</span></legend>
+              <div class="choices">
+                <label class="choice"><input type="checkbox" name="pains" value="script-not-charted"> A script was written but the chart wasn't updated</label>
+                <label class="choice"><input type="checkbox" name="pains" value="illegible"> Staff couldn't read an order</label>
+                <label class="choice"><input type="checkbox" name="pains" value="missed-change"> A change wasn't noticed in time</label>
+                <label class="choice"><input type="checkbox" name="pains" value="rewriting"> A mistake crept in when moving to a new chart</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="f-notes">Anything else we should know? <span class="optional">(optional)</span></label>
+              <p class="field__hint" id="f-notes-hint">Please don't include resident names or health details.</p>
+              <textarea id="f-notes" name="notes" rows="3" maxlength="1000" aria-describedby="f-notes-hint"></textarea>
+            </div>
+
+            <div class="field field--trap" aria-hidden="true">
+              <label for="f-website">Leave this empty</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label class="choice choice--consent">
+                <input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-error">
+                Email me about the waitlist and Clearchart's launch. I can unsubscribe at any time.
+              </label>
+              <p class="field__error" id="f-consent-error" hidden></p>
+            </div>
+
+            <p class="form__notice">We collect these details to run the waitlist and understand who needs Clearchart. We never sell or share them, and we delete them when you ask. Read our <a href="/privacy.html">privacy policy</a>.</p>
+
+            <p class="form__notice" id="form-email-note" hidden>Joining opens your email app with your details filled in, ready to send.</p>
+
+            <p class="form__status" id="form-status" role="alert" hidden></p>
+
+            <button type="submit" class="button button--block" id="waitlist-submit">Join the waitlist</button>
+          </form>
+
+          <div class="form-done" id="form-done" hidden>
+            <div data-done="saved" hidden>
+              <h3 tabindex="-1">You're on the waitlist</h3>
+              <p>Thanks, <span id="done-name"></span>. We'll email <strong id="done-email"></strong> before Clearchart opens in your state, and we may ask if you'd like a 20-minute call to tell us how charting works where you are.</p>
+            </div>
+            <div data-done="email" hidden>
+              <h3 tabindex="-1">Send the email to finish joining</h3>
+              <p>Your email app should have opened with your details filled in. Press send and you're on the waitlist.</p>
+              <p>If nothing opened, <a id="done-mailto" href="mailto:enquiries@s82.studio">open the email again</a> or send your details to enquiries@s82.studio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--sheet" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <h2 id="faq-title">Questions</h2>
+        <div class="faq__list">
+          <details>
+            <summary>Does the doctor still need to write a prescription?</summary>
+            <p>Yes. Clearchart replaces the paper medication chart, not the prescription. Doctors keep writing scripts the way they do now, and Clearchart asks them to add every script to the chart before they sign off the visit.</p>
+          </details>
+          <details>
+            <summary>Does the doctor need an account?</summary>
+            <p>No. Doctors use your facility's tablet, the same way they use the paper chart now, and sign each change on the screen.</p>
+          </details>
+          <details>
+            <summary>Can we take it to the pharmacy?</summary>
+            <p>Yes. Take the tablet to the pharmacy just as you would the paper chart, or print an up-to-date copy.</p>
+          </details>
+          <details>
+            <summary>Does it need internet?</summary>
+            <p>No. The chart lives on the tablet, so rounds and GP visits work anywhere. It backs up to Australian servers the next time the tablet is online.</p>
+          </details>
+          <details>
+            <summary>What if a tablet goes missing?</summary>
+            <p>It's encrypted and PIN-locked, so nobody can read it. Wipe it remotely, sign in on another tablet, and the chart is there from the last backup.</p>
+          </details>
+          <details>
+            <summary>What do we need to use it?</summary>
+            <p>A tablet for each medication chart folder you use now. Clearchart runs on standard iPads and Android tablets.</p>
+          </details>
+          <details>
+            <summary>Is it only for residential aged care?</summary>
+            <p>We're starting with residential aged care. Disability accommodation, respite and day programs use similar charts, so tell us if that's you.</p>
+          </details>
+          <details>
+            <summary>What will it cost?</summary>
+            <p>We're setting pricing with our first facilities. Waitlist members will see it first and can help shape it.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <div>
+        <a class="brand brand--footer" href="/" aria-label="Clearchart home">
+          <svg class="brand__mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+            <rect width="32" height="32" rx="7" fill="#1C2754"/>
+            <rect x="7" y="7.5" width="18" height="3" rx="1.5" fill="#fff"/>
+            <rect x="4.5" y="13.5" width="23" height="5" rx="1.5" fill="#FFE35A"/>
+            <rect x="7" y="14.5" width="13" height="3" rx="1.5" fill="#1C2754"/>
+            <rect x="7" y="21.5" width="11" height="3" rx="1.5" fill="#fff"/>
+          </svg>
+          <span class="brand__name">Clearchart</span>
+        </a>
+        <p class="site-footer__status">Clearchart is in development and isn't yet available for clinical use.</p>
+      </div>
+      <nav class="site-footer__links" aria-label="Footer">
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="mailto:enquiries@s82.studio">enquiries@s82.studio</a>
+      </nav>
+      <p class="site-footer__country">We acknowledge the Traditional Custodians of the lands on which we live and work, and pay our respects to Elders past and present.</p>
+    </div>
+  </footer>
+</body>
+</html>
